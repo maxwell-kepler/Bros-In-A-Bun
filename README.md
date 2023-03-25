@@ -16,5 +16,12 @@ To run this project:
 5. A server should now be running on localhost:3000
 
 The database for this project is hosted on phpMyAdmin
-
-We will need to find a way to sync this
+1. Create a database called bros
+2. Then, select the database and create a new user
+    - Username: bro
+    - Password: bros-in-a-bun-secure-password
+    - Host name: localhost
+    - Type: global
+    - Privileges: all
+3. After creating the database and user, import *.sql into phpMyAdmin by selecting the database on the left, then selecting import
+4. The sql should be up to date
