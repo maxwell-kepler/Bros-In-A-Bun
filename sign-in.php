@@ -7,41 +7,56 @@ if (!isset($_SESSION)) {
 
 function validUser($email, $password){
     global $con;
-    $sql = "SELECT Email, Password, UserID FROM users";
+    $sql = "SELECT Email, Password, UserID FROM customer";
     $queryresult = mysqli_query($con, $sql);
-    $foundID = false;
     while($row = mysqli_fetch_array($queryresult)){
         if($email == $row['Email'] && $password == $row['Password']){
-            $foundID = $row['UserID'];
-            break;
+            setSession_C($row['UserID']);
+            return;
         }
     }
-    //mysqli_close($con);
-    return $foundID;
+    $sql = "SELECT Email, Password, ManagerID FROM manager";
+    $queryresult = mysqli_query($con, $sql);
+    while($row = mysqli_fetch_array($queryresult)){
+        if($email == $row['Email'] && $password == $row['Password']){
+            setSession_M($row['ManagerID']);
+            return;
+        }
+    }
+    $_SESSION['Role'] = '';
+    return;
 }
   
-function setSession($userID){
+function setSession_C($userID){
     global $con;
-    $sql = "SELECT * FROM users WHERE UserID = '$userID'";
+    $sql = "SELECT * FROM customer WHERE UserID = '$userID'";
     $queryresult = mysqli_query($con, $sql);
     $result = mysqli_fetch_array($queryresult);
-    $_SESSION['UserID'] = $result['UserID'];
+    $_SESSION['Role'] = 'C';
+    $_SESSION['ID'] = $result['UserID'];
     $_SESSION['Email'] = $result['Email'];
-    $_SESSION['Role'] = $result['Role'];
+    $_SESSION['Name'] = $result['Name'];
+}
+
+function setSession_M($ManagerID){
+    global $con;
+    $sql = "SELECT * FROM manager WHERE ManagerID = '$ManagerID'";
+    $queryresult = mysqli_query($con, $sql);
+    $result = mysqli_fetch_array($queryresult);
+    $_SESSION['Role'] = 'M';
+    $_SESSION['ID'] = $result['ManagerID'];
+    $_SESSION['Email'] = $result['Email'];
     $_SESSION['Name'] = $result['Name'];
 }
 
 if(isset($_POST['submit'])){
     $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
-    $userID = validUser($email, $password);
-    if($userID != false){
-        setSession($userID);
-        if($_SESSION['Role'] == 'C'){
-            header('Location: home.php');
-        } else {
-            header('Location: home.php');
-        }
+    validUser($email, $password);
+    if($_SESSION['Role'] == 'C'){
+        header('Location: home.php');
+    } else if($_SESSION['Role'] == 'M'){
+        header('Location: home.php');
     } else {
         echo 'Incorrect login';
     }
