@@ -5,7 +5,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 if(!empty($_SESSION['Name'])){
-    echo 'Welcome ' . $_SESSION['Name'];
+    echo 'Welcome ' . $_SESSION['Name'] . ", you're a " . $_SESSION['Role'];
 } else {
     echo 'Welcome guest';
 }

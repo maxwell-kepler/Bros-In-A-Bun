@@ -10,13 +10,13 @@ if (!isset($_SESSION)) {
 function createCustomer($Email, $Password, $Name, $Phone, $CC_Num, $CC_CVC, $CC_Exp){
     //Codes: true is success, email is invalid email, false is someother failure
     global $con;
-    $sql = "SELECT UserID FROM users WHERE Email= '$Email'";
+    $sql = "SELECT UserID FROM customer WHERE Email= '$Email'";
     $queryresult = mysqli_query($con, $sql);
     $result = mysqli_fetch_array($queryresult);
     if(!empty($result)){
         return 'email';
     }
-    $sql = "INSERT INTO users (Email, Password, Name, Phone, CC_Num, CC_CVC, CC_Exp) VALUES ('$Email', '$Password', '$Name', '$Phone', '$CC_Num', '$CC_CVC', '$CC_Exp')";
+    $sql = "INSERT INTO customer (Email, Password, Name, Phone, CC_Num, CC_CVC, CC_Exp) VALUES ('$Email', '$Password', '$Name', '$Phone', '$CC_Num', '$CC_CVC', '$CC_Exp')";
     if(mysqli_query($con, $sql)){
         return true;
     } else {
@@ -27,12 +27,12 @@ function createCustomer($Email, $Password, $Name, $Phone, $CC_Num, $CC_CVC, $CC_
 
 function setSession($Email){
     global $con;
-    $sql = "SELECT * FROM users WHERE Email = '$Email'";
+    $sql = "SELECT * FROM customer WHERE Email = '$Email'";
     $queryresult = mysqli_query($con, $sql);
     $result = mysqli_fetch_array($queryresult);
-    $_SESSION['UserID'] = $result['UserID'];
+    $_SESSION['ID'] = $result['UserID'];
     $_SESSION['Email'] = $result['Email'];
-    $_SESSION['Role'] = $result['Role'];
+    $_SESSION['Role'] = 'C';
     $_SESSION['Name'] = $result['Name'];
 }
 
