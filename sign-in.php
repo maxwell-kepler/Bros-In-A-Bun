@@ -81,8 +81,14 @@ if(isset($_POST['newUser'])){
             </div>
         </div>
     </div>
-    <input type="submit" value="Submit" name="submit">
-    <input type="submit" value="Sign up" name="newUser">
+    <div class="card my-3 w-75">
+        <div class="card-body text-center">
+            <input type="submit" value="  Submit  " name="submit">
+            &nbsp;
+            <input type="submit" value="  Sign up  " name="newUser">
+        </div>
+    </div>
+    
 </form>
 
 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
