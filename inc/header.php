@@ -26,17 +26,29 @@ if (!isset($_SESSION)) {
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" href="home.php">Home</a> 
+            <?php 
+            if(isset($_SESSION['Role'])){
+              if($_SESSION['Role']=='M'){
+                ?><a class="nav-link" href="man_home.php">Home</a> <?php
+              } else {
+                ?> <a class="nav-link" href="home.php">Home</a> <?php
+              }
+            }
+            ?>
+            
           </li>
           <li class="nav-item">
             <?php
             if(isset($_SESSION['Role'])){
                 if($_SESSION['Role'] == 'C'){
-            ?>
-              <a class="nav-link" href="Create-order.php">Create order</a>
-            <?php
+                  ?>
+                  <a class="nav-link" href="Create-order.php">Create order</a>
+                  <?php
+                } else if($_SESSION['Role'] == 'M'){?>
+                  <a class="nav-link" href="View-inventory.php">View Inventory</a>
+                  <?php
                 }
-            } 
+            }
             ?>
           </li>
           <li class="nav-item">
@@ -44,9 +56,13 @@ if (!isset($_SESSION)) {
             if(isset($_SESSION['Role'])){
               if($_SESSION['Role'] == 'C') {?>
                 <a class="nav-link" href="edit-c.php">Edit Account Info</a>
-              <?php } else { ?>
+                <?php 
+              } else if($_SESSION['Role'] == "M"){
+                
+              }else { ?>
                 <a class="nav-link" href="edit-m.php">NULLNULLNULL</a>
-              <?php }
+                <?php 
+              }
             } else { ?>
               <a class="nav-link" href="sign-in.php">Sign in</a>
             <?php } ?>
