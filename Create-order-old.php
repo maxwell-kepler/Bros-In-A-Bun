@@ -46,17 +46,24 @@ if(isset($_POST['submitOrder'])){
         "lettuce" => 0,
         "cheese" => 0
     ];
-    
-    $sandArr["tomato"] = isset($_POST['tomato']) ? 1 : 0;
-    $sandArr["lettuce"] = isset($_POST['lettuce']) ? 1 : 0;
-    $sandArr["cheese"] = isset($_POST['cheese']) ? 1 : 0;  
-    
+    $name = $_POST['sub'];
+        foreach ($name as $ingredient){ 
+            if(!strcmp($sub, "tomato")){
+                $sandArr["tomato"] = 1;
+            } else if(!strcmp($sub, "lettuce")){
+                $sandArr["lettuce"] = 1;
+            } else if(!strcmp($sub, "cheese")){
+                $sandArr["cheese"] = 1;
+            }
+        }
+
+
+    echo '<br>';
+    var_dump(json_encode($sideArr));
+    echo '<br>';
+    var_dump(json_encode($drinkArr));
     echo '<br>';
     var_dump(json_encode($sandArr));
-    echo '  ';
-    var_dump(json_encode($sideArr));
-    echo '  ';
-    var_dump(json_encode($drinkArr));
 }
 ?>
 
@@ -72,25 +79,28 @@ if(isset($_POST['submitOrder'])){
     <img class="imgTomato2" src="img/Sandwich/tomato.png" hidden>
     <img class="imgCheese" src="img/Sandwich/cheese.png" hidden>
     <?php
-    if (isset($_POST['submit'])){
-        if(isset($_POST['tomato'])){
-            ?>
-            <img class="imgTomato1" src="img/Sandwich/tomato.png">
-            <img class="imgTomato2" src="img/Sandwich/tomato.png">
-        <?php
-        } 
-        if(isset($_POST['cheese'])){
-            ?>
-            <img class="imgCheese" src="img/Sandwich/cheese.png">
-        <?php
+    //https://stackoverflow.com/questions/18421988/getting-checkbox-values-on-submit
+        if (isset($_POST['sub'])){
+            $name = $_POST['sub'];
+            foreach ($name as $sub){ 
+                if(!strcmp($sub, "tomato")){
+                    ?>
+                    <img class="imgTomato1" src="img/Sandwich/tomato.png">
+                    <img class="imgTomato2" src="img/Sandwich/tomato.png">
+                <?php
+                } else if(!strcmp($sub, "cheese")){
+                    ?>
+                    <img class="imgCheese" src="img/Sandwich/cheese.png">
+                <?php
+                }
+                else if(!strcmp($sub, "lettuce")){
+                    ?>
+                    <img class="imgLettuce" src="img/Sandwich/lettuce.png">
+                <?php
+                }
+            }
         }
-        if(isset($_POST['lettuce'])){
-            ?>
-            <img class="imgLettuce" src="img/Sandwich/lettuce.png">
-        <?php
-        }
-    }  
-?>
+    ?>
 </section>    
 <section>
     <div class="card" style="width: 70rem;">
@@ -102,21 +112,26 @@ if(isset($_POST['submitOrder'])){
                 <li class="list-group-item">
                     <label for="lettuce">Lettuce</label>
                     <label class="switch">
-                        <input type="checkbox" name="lettuce" <?php if(isset($_POST['lettuce'])) echo "checked='checked'"; ?>>
+                        <!--https://stackoverflow.com/questions/12541419/php-keep-checkbox-checked-after-submitting-form-->
+                        <input type="checkbox" value="lettuce" name="sub[]" <?php if(isset($_POST['sub']) && in_array("lettuce", $_POST['sub'])) echo "checked='checked'"; ?>>
                         <span class="slider round"></span>
                     </label>
                 </li>
                 <li class="list-group-item">
                 <label for="tomato">Tomato</label>
                     <label class="switch">
+                        <input type="number" name="fries" value="<?php echo isset($_POST['fries']) ? $_POST['fries'] : 0 ?>">
+                        <input type="checkbox" value="tomato" name="sub[]" <?php if(isset($_POST['sub']) && in_array("tomato", $_POST['sub'])) echo "checked='checked'"; ?>>
+
                         <input type="checkbox" name="tomato" <?php if(isset($_POST['tomato'])) echo "checked='checked'"; ?>>
+
                         <span class="slider round"></span>
                     </label>
                 </li>
                 <li class="list-group-item">
-                    <label for="cheese">Cheese</label>
+                    <label for="tomato">Cheese</label>
                     <label class="switch">
-                        <input type="checkbox" name="cheese" <?php if(isset($_POST['cheese'])) echo "checked='checked'"; ?>>
+                        <input type="checkbox" value="cheese" name="sub[]" <?php if(isset($_POST['sub']) && in_array("cheese", $_POST['sub'])) echo "checked='checked'"; ?>>
                         <span class="slider round"></span>
                     </label>
                 </li>
