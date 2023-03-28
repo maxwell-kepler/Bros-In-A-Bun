@@ -1,10 +1,6 @@
-<?php include 'inc/header.php' ?>
+<?php include '../inc/header.php' ?>
 
 <?php
-if (!isset($_SESSION)) {
-    session_start();
-}
-
 function validUser($email, $password){
     global $con;
     $sql = "SELECT Email, Password, UserID FROM customer";
@@ -54,9 +50,9 @@ if(isset($_POST['submit'])){
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_SPECIAL_CHARS);
     validUser($email, $password);
     if($_SESSION['Role'] == 'C'){
-        header('Location: home.php');
+        header('Location: ../home/home.php');
     } else if($_SESSION['Role'] == 'M'){
-        header('Location: man_home.php');
+        header('Location: ../home/man_home.php');
     } else {
         echo 'Incorrect login';
     }
@@ -97,4 +93,4 @@ if(isset($_POST['newUser'])){
 
 
 
-<?php include 'inc/footer.php'; ?>
+<?php include '../inc/footer.php'; ?>

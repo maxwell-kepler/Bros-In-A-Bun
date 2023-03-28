@@ -1,4 +1,4 @@
-<?php include 'inc/header.php'; 
+<?php include '../inc/header.php'; 
 //echo '<br><br><br>'. $_SERVER['DOCUMENT_ROOT']. '<br><br><br>';
 ?>
 
@@ -24,10 +24,10 @@ if(!empty($_SESSION['Name'])){
     <p>Welcome to the View Restaraunt page. From here, you can both view and update current inventory levels of your restaraunt.</p>
     <p>Simply follow the tabs in the navigation bar above.</p>
     <div style = "position:relative; left:-590px;top:00px;">
-        <img src="img/icon.png" alt="Bros In a Bun">
+        <img src="../img/icon.png" alt="Bros In a Bun">
     </div>
         
 </section>
 
 
-<?php include 'inc/footer.php'; ?>
+<?php include '../inc/footer.php'; ?>

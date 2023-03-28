@@ -1,4 +1,4 @@
-<?php include 'inc/header.php'; ?>
+<?php include '../inc/header.php'; ?>
 
 <?php 
 if (!isset($_SESSION)) {
@@ -19,3 +19,5 @@ $items = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <?php if(empty($items)): ?>
     <p class="lead mt3">There are no items</p>
 <?php endif; ?>
+
+<?php include '../inc/footer.php'; ?>

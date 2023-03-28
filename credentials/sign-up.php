@@ -1,11 +1,6 @@
-<?php include 'inc/header.php'; 
-
-?>
+<?php include '../inc/header.php'; ?>
 
 <?php
-if (!isset($_SESSION)) {
-    session_start();
-}
 
 function createCustomer($Email, $Password, $Name, $Phone, $CC_Num, $CC_CVC, $CC_Exp){
     //Codes: true is success, email is invalid email, false is someother failure
@@ -50,7 +45,7 @@ if(isset($_POST['submit'])){
     } else if ($result == true){
         //echo 'Account created succesfully';
         setSession($Email);
-        header('Location: home.php');
+        header('Location: ../home/home.php');
     } else {
         echo 'Something went wront, please try again';
     }
@@ -92,4 +87,4 @@ if(isset($_POST['submit'])){
 </form>
 
 
-<?php include 'inc/footer.php'; ?>
+<?php include '../inc/footer.php'; ?>
