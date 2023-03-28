@@ -1,4 +1,8 @@
-<?php include 'config/database.php' ?>
+<?php include 'config/database.php';
+if (!isset($_SESSION)) {
+  session_start();
+}
+?>
 
 
 
@@ -22,10 +26,30 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link" href="home.php">Home</a>
+            <a class="nav-link" href="home.php">Home</a> 
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="sign-in.php">Sign in</a>
+            <?php
+            if(isset($_SESSION['Role'])){
+                if($_SESSION['Role'] == 'C'){
+            ?>
+              <a class="nav-link" href="Create-order.php">Create order</a>
+            <?php
+                }
+            } 
+            ?>
+          </li>
+          <li class="nav-item">
+            <?php 
+            if(isset($_SESSION['Role'])){
+              if($_SESSION['Role'] == 'C') {?>
+                <a class="nav-link" href="edit-c.php">Edit Account Info</a>
+              <?php } else { ?>
+                <a class="nav-link" href="edit-m.php">NULLNULLNULL</a>
+              <?php }
+            } else { ?>
+              <a class="nav-link" href="sign-in.php">Sign in</a>
+            <?php } ?>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="sign-out.php">Sign out</a>
@@ -37,3 +61,4 @@
 
 <main>
   <div class="container d-flex flex-column align-items-center">
+  <link rel="stylesheet" href="mystyle.css">
