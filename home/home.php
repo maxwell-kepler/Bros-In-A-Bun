@@ -1,18 +1,15 @@
-<?php include 'inc/header.php'; ?>
+<?php include '../inc/header.php'; ?>
 
 <?php 
-if (!isset($_SESSION)) {
-    session_start();
-}
 if(!empty($_SESSION['Name'])){
     echo 'Welcome ' . $_SESSION['Name'] . ", you're a ";
     if($_SESSION['Role'] == 'C'){
-        echo 'customer';
+        echo 'customer' . '<br>';
     } else {
-        echo 'manager';
+        echo 'manager'  . '<br>';
     }
 } else {
-    echo 'Welcome guest';
+    echo 'Welcome guest'  . '<br>';
 }
 ?>
 
@@ -27,4 +24,4 @@ if(!empty($_SESSION['Name'])){
 </section>
 
 
-<?php include 'inc/footer.php'; ?>
+<?php include '../inc/footer.php'; ?>

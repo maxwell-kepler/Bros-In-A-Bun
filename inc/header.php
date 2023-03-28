@@ -1,4 +1,4 @@
-<?php include 'config/database.php';
+<?php include '../config/database.php';
 if (!isset($_SESSION)) {
   session_start();
 }
@@ -29,9 +29,9 @@ if (!isset($_SESSION)) {
             <?php 
             if(isset($_SESSION['Role'])){
               if($_SESSION['Role']=='M'){
-                ?><a class="nav-link" href="man_home.php">Home</a> <?php
+                ?><a class="nav-link" href="../home/man_home.php">Home</a> <?php
               } else {
-                ?> <a class="nav-link" href="home.php">Home</a> <?php
+                ?> <a class="nav-link" href="../home/home.php">Home</a> <?php
               }
             }
             ?>
@@ -42,10 +42,10 @@ if (!isset($_SESSION)) {
             if(isset($_SESSION['Role'])){
                 if($_SESSION['Role'] == 'C'){
                   ?>
-                  <a class="nav-link" href="Create-order.php">Create order</a>
+                  <a class="nav-link" href="../customer/Create-order.php">Create order</a>
                   <?php
                 } else if($_SESSION['Role'] == 'M'){?>
-                  <a class="nav-link" href="View-inventory.php">View Inventory</a>
+                  <a class="nav-link" href="../manager/View-inventory.php">View Inventory</a>
                   <?php
                 }
             }
@@ -55,20 +55,21 @@ if (!isset($_SESSION)) {
             <?php 
             if(isset($_SESSION['Role'])){
               if($_SESSION['Role'] == 'C') {?>
-                <a class="nav-link" href="edit-c.php">Edit Account Info</a>
+                <a class="nav-link" href="../customer/edit-c.php">Edit Account Info</a>
                 <?php 
-              } else if($_SESSION['Role'] == "M"){
-                
-              }else { ?>
-                <a class="nav-link" href="edit-m.php">NULLNULLNULL</a>
+              } else if($_SESSION['Role'] == "M"){?>
+                <a class="nav-link" href="../manager/edit-m.php">Edit Account Info</a>
                 <?php 
               }
-            } else { ?>
-              <a class="nav-link" href="sign-in.php">Sign in</a>
-            <?php } ?>
+            } ?>
+            
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="sign-out.php">Sign out</a>
+            <?php if(isset($_SESSION['Role'])){ ?>
+              <a class="nav-link" href="../credentials/sign-out.php">Sign out</a>
+            <?php } else { ?>
+              <a class="nav-link" href="../credentials/sign-in.php">Sign in</a>
+            <?php } ?>
           </li>
         </ul>
       </div>
@@ -77,4 +78,4 @@ if (!isset($_SESSION)) {
 
 <main>
   <div class="container d-flex flex-column align-items-center">
-  <link rel="stylesheet" href="mystyle.css">
+  <link rel="stylesheet" href="../mystyle.css">

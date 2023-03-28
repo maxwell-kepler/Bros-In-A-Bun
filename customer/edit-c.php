@@ -1,13 +1,9 @@
-<?php include 'inc/header.php'; ?>
+<?php include '../inc/header.php'; ?>
 
 
 <?php 
-if (!isset($_SESSION)) {
-    session_start();
-}
-
 if(!empty($_SESSION['Name'])){
-    echo 'Welcome ' . $_SESSION['Name'] . ", here you can edit your accound information";
+    echo 'Welcome ' . $_SESSION['Name'] . ", here you can edit your accound information"  . '<br>';
 }
 ?>
 
@@ -19,6 +15,7 @@ if(isset($_POST['submitEmail'])){
     $sql = "UPDATE customer SET Email = '$email' WHERE UserID = '$id'";
     $queryresult = mysqli_query($con, $sql);
     if($queryresult == 1){
+        $_SESSION['Email'] = $email;
         //https://www.w3schools.com/howto/howto_js_alert.asp
     ?>
     <div class="alertP">
@@ -64,6 +61,7 @@ if(isset($_POST['submitName'])){
     $sql = "UPDATE customer SET Name = '$Name' WHERE UserID = '$id'";
     $queryresult = mysqli_query($con, $sql);
     if($queryresult == 1){
+        $_SESSION['Name'] = $Name;
     ?>
     <div class="alertP">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
@@ -147,4 +145,4 @@ if(isset($_POST['submitName'])){
     </ul>
 </div>
    
-<?php include 'inc/footer.php'; ?>
+<?php include '../inc/footer.php'; ?>

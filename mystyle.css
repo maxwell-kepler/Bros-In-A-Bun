@@ -3,9 +3,14 @@ img {
     top: 150px;
     left: 750px;
 }
-.imgBase {
+.imgBaseWhite {
     z-index: 1;
     width: 500px;
+}
+.imgBaseBrown {
+  z-index: 1;
+  width: 500px;
+  height: 418px;
 }
 .imgLettuce {
     left: 640px;
