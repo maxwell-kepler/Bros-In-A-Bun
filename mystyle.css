@@ -1,41 +1,41 @@
 img {
     position: absolute;
-    top: 0px;
-    left: 560px;
+    top: 150px;
+    left: 750px;
 }
 .imgBase {
     z-index: 1;
-    width: 50%;
+    width: 500px;
 }
 .imgLettuce {
-    left: 430px;
-    top: -20px;
+    left: 640px;
+    top: 140px;
     z-index: 2;
     background-color: transparent;
-    width: 68%;
+    width: 660px;
     -webkit-transform: rotate(60deg);
     -moz-transform: rotate(60deg);
     -o-transform: rotate(60deg);
     -ms-transform: rotate(60deg);
     transform: rotate(60deg);
 }
-.imgTomato1 {
-    top: 200px;
-    left: 600px;
-    z-index: 4;
+.imgCheese {
+    top: 170px;
+    left: 800px;
+    width: 360px;
+    z-index: 3;
     background-color: transparent;
 }
-.imgTomato2 {
-    top: 50px;
+.imgTomato1 {
+    top: 300px;
     left: 800px;
     z-index: 4;
     background-color: transparent;
 }
-.imgCheese {
-    top: 32px;
-    left: 650px;
-    width: 35%;
-    z-index: 3;
+.imgTomato2 {
+    top: 170px;
+    left: 950px;
+    z-index: 4;
     background-color: transparent;
 }
 
@@ -46,63 +46,100 @@ img {
 
 /*https://www.w3schools.com/howto/howto_css_switch.asp*/
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  /* The slider */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-  }
-  
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
-  
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
-  
-  input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 34px;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+
+
+.alertP {
+  padding: 20px;
+  background-color: #36f4a2;
+  color: white;
+}
+
+.alertN {
+  padding: 20px;
+  background-color: #f44336;
+  color: white;
+}
+
+.closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.closebtn:hover {
+  color: black;
+}
+
+
+
+p {
+  overflow: hidden;
+  max-width: 75ch;
+}
