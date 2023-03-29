@@ -3,6 +3,7 @@ img {
     top: 150px;
     left: 750px;
 }
+/*Bread*/
 .imgBaseWhite {
     z-index: 1;
     width: 500px;
@@ -12,10 +13,50 @@ img {
   width: 500px;
   height: 418px;
 }
+
+
+/*Meat*/
+.imgBacon {
+  top: 190px;
+  left: 730px;
+  z-index: 4;
+  width: 500px;
+  background-color: transparent;
+}
+.imgHam {
+  top: 80px;
+  left: 710px;
+  z-index: 2;
+  width: 570px;
+  background-color: transparent;
+}
+.imgTurkey {
+  top: 100px;
+  left: 800px;
+  z-index: 2;
+  width: 400px;
+  height: 500px;
+  background-color: transparent;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+
+/*Not Meat*/
+.imgCheese {
+  top: 170px;
+  left: 800px;
+  width: 360px;
+  z-index: 4;
+  background-color: transparent;
+}
 .imgLettuce {
     left: 640px;
     top: 140px;
-    z-index: 2;
+    z-index: 3;
     background-color: transparent;
     width: 660px;
     -webkit-transform: rotate(60deg);
@@ -24,28 +65,38 @@ img {
     -ms-transform: rotate(60deg);
     transform: rotate(60deg);
 }
-.imgCheese {
-    top: 170px;
-    left: 800px;
-    width: 360px;
-    z-index: 3;
-    background-color: transparent;
-}
 .imgTomato1 {
     top: 300px;
     left: 800px;
-    z-index: 4;
+    z-index: 5;
     background-color: transparent;
 }
 .imgTomato2 {
     top: 170px;
     left: 950px;
-    z-index: 4;
+    z-index: 5;
     background-color: transparent;
 }
-
-
-
+.imgOnion{
+  top: 130px;
+  left: 780px;
+  z-index: 5;
+  background-color: transparent;
+}
+.imgPickle1{
+  top: 130px;
+  left: 780px;
+  z-index: 6;
+  width: 250px;
+  background-color: transparent;
+}
+.imgPickle2{
+  top: 300px;
+  left: 970px;
+  z-index: 6;
+  width: 250px;
+  background-color: transparent;
+}
 
 
 
