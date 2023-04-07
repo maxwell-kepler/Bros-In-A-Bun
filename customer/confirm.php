@@ -6,6 +6,13 @@ if(!empty($_SESSION['Name'])){
 }
 
 var_dump(json_encode($_SESSION['order']));
+
+//As it arrives, check that the ingredients exists
+//unset missing ingredients, warning
+//Go back button + warning
+//Confirm order
+//--> decrements
+//Go home or order another
 ?>
 
 
