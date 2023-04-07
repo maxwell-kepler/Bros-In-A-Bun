@@ -199,3 +199,34 @@ p {
   overflow: hidden;
   max-width: 75ch;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Manager stuff*/
+button.nicebutton{
+  border-radius: 12px;
+  border-width: thin thin;
+  background-color: rgb(245, 245, 245);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+td{
+  border:1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+} 
