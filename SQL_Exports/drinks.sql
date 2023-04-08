@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2023 at 07:55 PM
+-- Generation Time: Apr 09, 2023 at 12:43 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -59,7 +59,7 @@ ALTER TABLE `drinks`
 -- Constraints for table `drinks`
 --
 ALTER TABLE `drinks`
-  ADD CONSTRAINT `FOREIGN_KEY2` FOREIGN KEY (`Item_name`) REFERENCES `inventory` (`Item_name`);
+  ADD CONSTRAINT `FOREIGN_KEY2` FOREIGN KEY (`Item_name`) REFERENCES `inventory` (`Item_name`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
