@@ -29,10 +29,9 @@ if(isset($_POST['submitOrderIng']) || isset($_POST['submitOrderSide']) || isset(
 <?php
 if(isset($_POST['submitOrderIng'])){
     $x = 0;
+    $ingArr = $_POST['ing'];
     foreach($Fitems as $item):
-        $ingArr = $_POST['ing'];
         if($ingArr[$x] != 0){
-            //echo $item["Item_name"] . ': ' . $ingArr[$x] . '<br>';
             $newLevel = $item["Stock_level"] + $ingArr[$x];
             $iName = $item["Item_name"];
             $sql = "UPDATE inventory SET Stock_level = '$newLevel' WHERE Item_name = '$iName'";
@@ -87,10 +86,9 @@ $Sitems = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <?php
 if(isset($_POST['submitOrderSide'])){
     $x = 0;
+    $ingArr = $_POST['side'];
     foreach($Sitems as $item):
-        $ingArr = $_POST['side'];
         if($ingArr[$x] != 0){
-            //echo $item["Item_name"] . ': ' . $ingArr[$x] . '<br>';
             $newLevel = $item["Stock_level"] + $ingArr[$x];
             $iName = $item["Item_name"];
             $sql = "UPDATE inventory SET Stock_level = '$newLevel' WHERE Item_name = '$iName'";
@@ -142,10 +140,9 @@ $Ditems = mysqli_fetch_all($result, MYSQLI_ASSOC);
 <?php
 if(isset($_POST['submitOrderDrink'])){
     $x = 0;
+    $ingArr = $_POST['drink'];
     foreach($Ditems as $item):
-        $ingArr = $_POST['drink'];
         if($ingArr[$x] != 0){
-            //echo $item["Item_name"] . ': ' . $ingArr[$x] . '<br>';
             $newLevel = $item["Stock_level"] + $ingArr[$x];
             $iName = $item["Item_name"];
             $sql = "UPDATE inventory SET Stock_level = '$newLevel' WHERE Item_name = '$iName'";
