@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2023 at 12:43 AM
+-- Generation Time: Apr 09, 2023 at 11:54 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -36,9 +36,9 @@ CREATE TABLE `drinks` (
 --
 
 INSERT INTO `drinks` (`Item_name`) VALUES
-('Coca-Cola'),
-('Pepsi'),
-('Sprite');
+('Beer'),
+('Soda'),
+('Tea');
 
 --
 -- Indexes for dumped tables
