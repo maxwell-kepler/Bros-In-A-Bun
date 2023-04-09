@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 28, 2023 at 04:50 AM
+-- Generation Time: Apr 09, 2023 at 11:53 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -43,12 +43,9 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`UserID`, `Email`, `Password`, `Name`, `Phone`, `CC_Num`, `CC_CVC`, `CC_Exp`) VALUES
-(1, 'max@mail.com', 'password', 'a', '4038704707', '1234567890121213', '213', '2024-09-11'),
-(3, 'soph@email.ca', 'passWWWW', 'soph', '1233333333', '1234423112333212', '111', '2024-09-13'),
-(5, 'test@mail.caaa', 'asdf', 'test', '123', '123', '123', '2023-03-15'),
-(8, 'tmp@temp.com', 'tempPass', 'temp', '333', '333', '333', '2023-03-21'),
-(9, 'guest@mail.com', 'password', 'GUEST', '123', '123', '123', '2023-03-23'),
-(10, 'a@a.a', 'a', 'a', '1', '1', '1', '2023-03-05');
+(1, 'max@mail.com', 'password', 'max', '403-392-3779', '4716 5305 8192 2637', '874', '2024-09-11'),
+(5, 'test@mail.caaa', 'asdf', 'test', '403-868-9987', '5402 8619 0324 6957', '239', '2025-03-15'),
+(9, 'guest@mail.com', 'password', 'GUEST', '403-143-2460', '3528 7691 4087 5276', '556', '2023-04-23');
 
 --
 -- Indexes for dumped tables

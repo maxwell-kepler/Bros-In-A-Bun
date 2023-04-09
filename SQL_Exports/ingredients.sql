@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2023 at 12:42 AM
+-- Generation Time: Apr 09, 2023 at 11:54 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -38,10 +38,16 @@ CREATE TABLE `ingredients` (
 --
 
 INSERT INTO `ingredients` (`Item_name`, `Purchased_date`, `Expiration`) VALUES
-('Cheddar Cheese', '2023/03/30', '2023/04/30'),
-('Lettuce', '2023/03/30', '2023/04/1'),
-('Tomato', '2023/04/30', '2023/04/2'),
-('White Bread', '2023/04/30', '2023/04/30');
+('Bacon', '2023/04/10', '2023/04/30'),
+('Brown Bread', '2023/04/09', '2023/04/29'),
+('Cheese', '2023/03/30', '2023/04/30'),
+('Ham', '2023/04/10', '2023/04/20'),
+('Lettuce', '2023/03/30', '2023/04/19'),
+('Onion', '2023/04/08', '2023/04/18'),
+('Pickle', '2023/04/10', '2023/04/17'),
+('Tomato', '2023/04/08', '2023/05/2'),
+('Turkey', '2023/04/10', '2023/04/15'),
+('White Bread', '2023/03/30', '2023/04/30');
 
 --
 -- Indexes for dumped tables

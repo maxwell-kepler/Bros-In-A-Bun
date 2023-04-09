@@ -24,43 +24,58 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sides`
+-- Table structure for table `order`
 --
 
-CREATE TABLE `sides` (
-  `Item_name` varchar(255) NOT NULL,
-  `Time Prepared` datetime NOT NULL
+CREATE TABLE `order` (
+  `OrderID` int(11) NOT NULL,
+  `Completed` tinyint(1) NOT NULL,
+  `CustomerID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `sides`
+-- Dumping data for table `order`
 --
 
-INSERT INTO `sides` (`Item_name`, `Time Prepared`) VALUES
-('Chips', '2023-04-14 18:58:10'),
-('Fries', '2023-04-13 00:00:00'),
-('Salad', '2023-04-09 22:00:21');
+INSERT INTO `order` (`OrderID`, `Completed`, `CustomerID`) VALUES
+(19, 0, 1),
+(20, 0, 1),
+(21, 0, 1),
+(22, 0, 1),
+(23, 0, 1),
+(24, 0, 1),
+(25, 1, 1);
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `sides`
+-- Indexes for table `order`
 --
-ALTER TABLE `sides`
-  ADD PRIMARY KEY (`Item_name`),
-  ADD KEY `Item_name` (`Item_name`) USING BTREE;
+ALTER TABLE `order`
+  ADD PRIMARY KEY (`OrderID`),
+  ADD KEY `CustomerID` (`CustomerID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `order`
+--
+ALTER TABLE `order`
+  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Constraints for dumped tables
 --
 
 --
--- Constraints for table `sides`
+-- Constraints for table `order`
 --
-ALTER TABLE `sides`
-  ADD CONSTRAINT `FOREIGN_KEY1` FOREIGN KEY (`Item_name`) REFERENCES `inventory` (`Item_name`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `order`
+  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`CustomerID`) REFERENCES `customer` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
