@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2023 at 11:54 PM
+-- Generation Time: Apr 11, 2023 at 01:52 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -40,86 +40,29 @@ CREATE TABLE `orderitem` (
 --
 
 INSERT INTO `orderitem` (`Order_Item_Num`, `Item_name`, `Price`, `Quantity`, `Order_Num`) VALUES
-(65, 'White Bread', 0.08, 1, 19),
-(66, 'Bacon', 0.5, 1, 19),
-(67, 'Ham', 1, 1, 19),
-(68, 'Turkey', 1, 1, 19),
-(69, 'Cheese', 0.15, 1, 19),
-(70, 'Onion', 0.2, 1, 19),
-(71, 'Pickle', 0.1, 1, 19),
-(72, 'Tomato', 0.06, 1, 19),
-(73, 'Chips', 0.5, 3, 19),
-(74, 'Salad', 3, 3, 19),
-(75, 'Soda', 1.5, 3, 19),
-(76, 'Tea', 1.05, 3, 19),
-(77, 'Beer', 1.1, 3, 19),
-(78, 'White Bread', 0.08, 1, 20),
-(79, 'Bacon', 0.5, 1, 20),
-(80, 'Ham', 1, 1, 20),
-(81, 'Turkey', 1, 1, 20),
-(82, 'Cheese', 0.15, 1, 20),
-(83, 'Onion', 0.2, 1, 20),
-(84, 'Pickle', 0.1, 1, 20),
-(85, 'Tomato', 0.06, 1, 20),
-(86, 'Chips', 0.5, 3, 20),
-(87, 'Salad', 3, 3, 20),
-(88, 'Soda', 1.5, 3, 20),
-(89, 'Tea', 1.05, 3, 20),
-(90, 'Beer', 1.1, 3, 20),
-(91, 'White Bread', 0.08, 1, 21),
-(92, 'Bacon', 0.5, 1, 21),
-(93, 'Ham', 1, 1, 21),
-(94, 'Turkey', 1, 1, 21),
-(95, 'Cheese', 0.15, 1, 21),
-(96, 'Onion', 0.2, 1, 21),
-(97, 'Pickle', 0.1, 1, 21),
-(98, 'Tomato', 0.06, 1, 21),
-(99, 'Chips', 0.5, 3, 21),
-(100, 'Salad', 3, 3, 21),
-(101, 'Soda', 1.5, 3, 21),
-(102, 'Tea', 1.05, 3, 21),
-(103, 'Beer', 1.1, 3, 21),
-(104, 'White Bread', 0.08, 1, 22),
-(105, 'Bacon', 0.5, 1, 22),
-(106, 'Ham', 1, 1, 22),
-(107, 'Turkey', 1, 1, 22),
-(108, 'Cheese', 0.15, 1, 22),
-(109, 'Onion', 0.2, 1, 22),
-(110, 'Pickle', 0.1, 1, 22),
-(111, 'Tomato', 0.06, 1, 22),
-(112, 'Chips', 0.5, 3, 22),
-(113, 'Salad', 3, 3, 22),
-(114, 'Soda', 1.5, 3, 22),
-(115, 'Tea', 1.05, 3, 22),
-(116, 'Beer', 1.1, 3, 22),
-(117, 'White Bread', 0.08, 1, 23),
-(118, 'Bacon', 0.5, 1, 23),
-(119, 'Ham', 1, 1, 23),
-(120, 'Turkey', 1, 1, 23),
-(121, 'Cheese', 0.15, 1, 23),
-(122, 'Onion', 0.2, 1, 23),
-(123, 'Pickle', 0.1, 1, 23),
-(124, 'Tomato', 0.06, 1, 23),
-(125, 'Chips', 0.5, 3, 23),
-(126, 'Salad', 3, 3, 23),
-(127, 'Soda', 1.5, 3, 23),
-(128, 'Tea', 1.05, 3, 23),
-(129, 'Beer', 1.1, 3, 23),
-(130, 'Brown Bread', 1, 1, 24),
-(131, 'Onion', 0.2, 1, 24),
-(132, 'White Bread', 0.08, 1, 25),
-(133, 'Bacon', 0.5, 1, 25),
-(134, 'Ham', 1, 1, 25),
-(135, 'Turkey', 1, 1, 25),
-(136, 'Cheese', 0.15, 1, 25),
-(137, 'Onion', 0.2, 1, 25),
-(138, 'Pickle', 0.1, 1, 25),
-(139, 'Tomato', 0.06, 1, 25),
-(140, 'Chips', 0.5, 3, 25),
-(141, 'Salad', 3, 1, 25),
-(142, 'Soda', 1.5, 3, 25),
-(143, 'Tea', 1.05, 2, 25),
-(144, 'Beer', 1.1, 2, 25);
+(225, 'White Bread', 0.08, 1, 45),
+(226, 'Bacon', 0.5, 1, 45),
+(227, 'Ham', 1, 1, 45),
+(228, 'Turkey', 1, 1, 45),
+(229, 'Cheese', 0.15, 1, 45),
+(230, 'Onion', 0.2, 1, 45),
+(231, 'Pickle', 0.1, 1, 45),
+(232, 'Tomato', 0.06, 1, 45),
+(233, 'Lettuce', 0.03, 1, 45),
+(234, 'Fries', 0.44, 3, 45),
+(235, 'Chips', 0.5, 2, 45),
+(236, 'Salad', 3, 1, 45),
+(237, 'Soda', 1.5, 3, 45),
+(238, 'Tea', 1.05, 2, 45),
+(239, 'Beer', 1.1, 1, 45),
+(240, 'White Bread', 0.08, 1, 46),
+(241, 'Bacon', 0.5, 1, 46),
+(242, 'Tomato', 0.06, 1, 46),
+(243, 'Lettuce', 0.03, 1, 46),
+(244, 'Fries', 0.44, 1, 46),
+(245, 'Salad', 3, 2, 46),
+(246, 'Soda', 1.5, 2, 46),
+(247, 'Beer', 1.1, 2, 46);
 
 --
 -- Indexes for dumped tables
@@ -141,7 +84,7 @@ ALTER TABLE `orderitem`
 -- AUTO_INCREMENT for table `orderitem`
 --
 ALTER TABLE `orderitem`
-  MODIFY `Order_Item_Num` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=145;
+  MODIFY `Order_Item_Num` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=248;
 
 --
 -- Constraints for dumped tables

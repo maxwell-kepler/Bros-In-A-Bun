@@ -50,30 +50,18 @@ if(isset($_POST['submitOrder'])){
     $drinkArr['Tea'] = (filter_input(INPUT_POST, 'Tea', FILTER_SANITIZE_NUMBER_INT) > 0) ? filter_input(INPUT_POST, 'Tea', FILTER_SANITIZE_NUMBER_INT) : $_POST['Tea'] = 0;
     $drinkArr['Beer'] = (filter_input(INPUT_POST, 'Beer', FILTER_SANITIZE_NUMBER_INT) > 0) ? filter_input(INPUT_POST, 'Beer', FILTER_SANITIZE_NUMBER_INT) : $_POST['Beer'] = 0;
     
-    //$orderArr = [[],[],[]];
-    /*$orderArr = [$sandArr, $sideArr,$drinkArr];
-    foreach(array_keys($orderArr) as $index){
-        foreach(array_keys($orderArr[$index]) as $item){
-            if($orderArr[$index][$item] == 0){
-                unset($orderArr[$index][$item]);
-            }
-        }
-    }
-    $_SESSION['order'] = $orderArr;*/
-
     foreach(array_keys($sandArr) as $item){
         if($sandArr[$item] == 0){
             unset($sandArr[$item]);
         }
     }
 
-    
     foreach(array_keys($sideArr) as $item){
         if($sideArr[$item] == 0){
             unset($sideArr[$item]);
         }
     }
-
+    
     foreach(array_keys($drinkArr) as $item){
         if($drinkArr[$item] == 0){
             unset($drinkArr[$item]);

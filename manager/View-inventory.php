@@ -53,15 +53,27 @@ if(isset($_POST['submitOrderIng'])){
             <td><b>Quantitiy To Order</b></td>
         </tr>
         <?php foreach($Fitems as $item): ?>
-            <tr>
-                <td><?php echo $item["Item_name"];?></td>
-                <td><?php echo $item["Unit_cost"];?></td>
-                <td><?php echo $item["Stock_level"];?></td>
-                <td><?php echo $item["Warning_level"];?></td>
-                <td><?php echo $item["Expiration"];?></td>
-                <td><?php echo $item["Distributor_email"];?></td>
-                <td><input type="number" name="ing[]" value="0"></td>
-            </tr>
+            <?php if($item["Stock_level"] > $item["Warning_level"]){ ?>
+                <tr>
+                    <td><?php echo $item["Item_name"];?></td>
+                    <td><?php echo $item["Unit_cost"];?></td>
+                    <td><?php echo $item["Stock_level"];?></td>
+                    <td><?php echo $item["Warning_level"];?></td>
+                    <td><?php echo $item["Expiration"];?></td>
+                    <td><?php echo $item["Distributor_email"];?></td>
+                    <td><input type="number" name="ing[]" value="0"></td>
+                </tr>
+            <?php } else { ?>
+                <tr bgcolor="DarkSeaGreen">
+                    <td><?php echo $item["Item_name"];?></td>
+                    <td><?php echo $item["Unit_cost"];?></td>
+                    <td><?php echo $item["Stock_level"];?></td>
+                    <td><?php echo $item["Warning_level"];?></td>
+                    <td><?php echo $item["Expiration"];?></td>
+                    <td><?php echo $item["Distributor_email"];?></td>
+                    <td><input type="number" name="ing[]" value="0"></td>
+                </tr>
+            <?php } ?>
         <?php endforeach;?>
     </table>
     <input type="submit" value="Order Ingredients" name="submitOrderIng">
@@ -110,14 +122,25 @@ if(isset($_POST['submitOrderSide'])){
             <td><b>Quantitiy To Order</b></td>
         </tr>
         <?php foreach($Sitems as $item): ?>
-            <tr>
-                <td><?php echo $item["Item_name"];?></td>
-                <td><?php echo $item["Unit_cost"];?></td>
-                <td><?php echo $item["Stock_level"];?></td>
-                <td><?php echo $item["Warning_level"];?></td>
-                <td><?php echo $item["Time Prepared"];?></td>
-                <td><input type="number" name="side[]" value="0"></td>
-            </tr>
+            <?php if($item["Stock_level"] > $item["Warning_level"]){ ?>
+                <tr>
+                    <td><?php echo $item["Item_name"];?></td>
+                    <td><?php echo $item["Unit_cost"];?></td>
+                    <td><?php echo $item["Stock_level"];?></td>
+                    <td><?php echo $item["Warning_level"];?></td>
+                    <td><?php echo $item["Time Prepared"];?></td>
+                    <td><input type="number" name="side[]" value="0"></td>
+                </tr>
+            <?php } else { ?>
+                <tr bgcolor="DarkSeaGreen">
+                    <td><?php echo $item["Item_name"];?></td>
+                    <td><?php echo $item["Unit_cost"];?></td>
+                    <td><?php echo $item["Stock_level"];?></td>
+                    <td><?php echo $item["Warning_level"];?></td>
+                    <td><?php echo $item["Time Prepared"];?></td>
+                    <td><input type="number" name="side[]" value="0"></td>
+                </tr>
+            <?php } ?>
         <?php endforeach;?>
     </table>
     <input type="submit" value="Order Sides" name="submitOrderSide">
@@ -163,13 +186,23 @@ if(isset($_POST['submitOrderDrink'])){
             <td><b>Quantitiy To Order</b></td>
         </tr>
         <?php foreach($Ditems as $item): ?>
-            <tr>
-                <td><?php echo $item["Item_name"];?></td>
-                <td><?php echo $item["Unit_cost"];?></td>
-                <td><?php echo $item["Stock_level"];?></td>
-                <td><?php echo $item["Warning_level"];?></td>
-                <td><input type="number" name="drink[]" value="0"></td>
-            </tr>
+            <?php if($item["Stock_level"] > $item["Warning_level"]){ ?>
+                <tr>
+                    <td><?php echo $item["Item_name"];?></td>
+                    <td><?php echo $item["Unit_cost"];?></td>
+                    <td><?php echo $item["Stock_level"];?></td>
+                    <td><?php echo $item["Warning_level"];?></td>
+                    <td><input type="number" name="drink[]" value="0"></td>
+                </tr>
+            <?php } else { ?>
+                <tr bgcolor="DarkSeaGreen">
+                    <td><?php echo $item["Item_name"];?></td>
+                    <td><?php echo $item["Unit_cost"];?></td>
+                    <td><?php echo $item["Stock_level"];?></td>
+                    <td><?php echo $item["Warning_level"];?></td>
+                    <td><input type="number" name="drink[]" value="0"></td>
+                </tr>
+            <?php } ?>
         <?php endforeach;?>
     </table>
     <input type="submit" value="Order Drinks" name="submitOrderDrink">

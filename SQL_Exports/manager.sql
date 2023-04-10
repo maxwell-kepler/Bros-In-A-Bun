@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2023 at 11:54 PM
+-- Generation Time: Apr 11, 2023 at 01:50 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -40,7 +40,7 @@ CREATE TABLE `manager` (
 --
 
 INSERT INTO `manager` (`ManagerID`, `Email`, `Password`, `Name`, `Phone`) VALUES
-(1, 'manager@mail.com', 'manager', 'Manager', '403-621-5306');
+(1, 'manager@mail.com', '43f15c1cf445911c2195b27ace6c788940d499a0e0274a86f4fd4d0abc98dafc', 'Manager', '403-621-5306');
 
 --
 -- Indexes for dumped tables

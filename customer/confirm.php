@@ -5,6 +5,11 @@ if(!empty($_SESSION['Name'])){
     echo 'Welcome ' . $_SESSION['Name'] . ", please confirm your order" . '<br>';
 }
 
+if(!isset($_SESSION['ing']) && !isset($_SESSION['ing']) && !isset($_SESSION['ing'])){
+    //This is to prevent being here accidentally
+    header("location: Create-order.php");
+}
+
 $ingArr = $_SESSION['ing'];
 $sideArr = $_SESSION['side'];
 $drinkArr = $_SESSION['drink'];
@@ -96,6 +101,7 @@ if(!empty($drinkArr)){
     echo "<br>Your selected drinks price comes to: $$priceArr[2]<br>";
 }
 $total = $priceArr[0] + $priceArr[1] + $priceArr[2];
+$_SESSION['total'] = $total;
 echo "<br>Your total price comes to: $$total<br>";
 
 //Check out a better way to store type of bread
@@ -254,88 +260,93 @@ if(isset($_POST['submitComplete'])){
     }
     if($orderStillValid == false){
         header("Refresh:0");
-    }
-    //At this point, the order is valid
-    //Create an order
-    $id = $_SESSION['ID'];
-    $sql = "INSERT INTO `order` (`OrderID`, `Completed`, `CustomerID`) VALUES (NULL, '0', '$id')";
-    if(!mysqli_query($con, $sql)){
-        echo 'INVALID<br>';
-        header("Refresh:0");
-    }
-    $sql = "SELECT `OrderID` FROM `order` WHERE `CustomerID`='$id' AND `Completed`='0'";
-    $result = mysqli_query($con, $sql);
-    $orderID = 0;
-    while($row = mysqli_fetch_array($result)){
-        //Have it in a while loop to get the customer's most recent order
-        $orderID = $row['OrderID'];
-    }
-    
-    //Add orderItems to it
-    foreach(array_keys($ingArr) as $item){
-        $sandTopping = $item;
-        $expecetedQuantity = 1;
-        if(!strcmp($item, 'type')){
-            $sandTopping = $ingArr[$item];
+    } else {
+        //At this point, the order is valid
+        //Create an order
+        $id = $_SESSION['ID'];
+        $sql = "INSERT INTO `order` (`OrderID`, `Completed`, `CustomerID`) VALUES (NULL, '0', '$id')";
+        if(!mysqli_query($con, $sql)){
+            echo 'INVALID<br>';
+            header("Refresh:0");
         }
-        $sql = "SELECT Unit_cost FROM ingredients NATURAL JOIN inventory WHERE Item_name = '$sandTopping'";
+        $sql = "SELECT `OrderID` FROM `order` WHERE `CustomerID`='$id' AND `Completed`='0'";
         $result = mysqli_query($con, $sql);
-        $price = 0;
+        $orderID = 0;
         while($row = mysqli_fetch_array($result)){
-            $price = $row['Unit_cost'];
+            //Have it in a while loop to get the customer's most recent order
+            $orderID = $row['OrderID'];
         }
-        $sql = "INSERT INTO `orderitem` (`Order_Item_Num`, `Item_name`, `Price`, `Quantity`, `Order_Num`) VALUES (NULL, '$sandTopping', '$price', '1', '$orderID')";
-        $result = mysqli_query($con, $sql);
-    }
-    foreach(array_keys($sideArr) as $item){
-        $sideItem = $item;
-        $sideQuantity = $sideArr[$item];
-        $sql = "SELECT Unit_cost FROM sides NATURAL JOIN inventory WHERE Item_name = '$sideItem'";
-        $result = mysqli_query($con, $sql);
-        $price = 0;
-        while($row = mysqli_fetch_array($result)){
-            $price = $row['Unit_cost'];
+        
+        //Add orderItems to it
+        foreach(array_keys($ingArr) as $item){
+            $sandTopping = $item;
+            $expecetedQuantity = 1;
+            if(!strcmp($item, 'type')){
+                $sandTopping = $ingArr[$item];
+            }
+            $sql = "SELECT Unit_cost FROM ingredients NATURAL JOIN inventory WHERE Item_name = '$sandTopping'";
+            $result = mysqli_query($con, $sql);
+            $price = 0;
+            while($row = mysqli_fetch_array($result)){
+                $price = $row['Unit_cost'];
+            }
+            $sql = "INSERT INTO `orderitem` (`Order_Item_Num`, `Item_name`, `Price`, `Quantity`, `Order_Num`) VALUES (NULL, '$sandTopping', '$price', '1', '$orderID')";
+            $result = mysqli_query($con, $sql);
         }
-        $sql = "INSERT INTO `orderitem` (`Order_Item_Num`, `Item_name`, `Price`, `Quantity`, `Order_Num`) VALUES (NULL, '$sideItem', '$price', '$sideQuantity', '$orderID')";
-        $result = mysqli_query($con, $sql);
-    }
-    foreach(array_keys($drinkArr) as $item){
-        $drinkItem = $item;
-        $drinkQuantity = $drinkArr[$item];
-        $sql = "SELECT Unit_cost FROM drinks NATURAL JOIN inventory WHERE Item_name = '$drinkItem'";
-        $result = mysqli_query($con, $sql);
-        $price = 0;
-        while($row = mysqli_fetch_array($result)){
-            $price = $row['Unit_cost'];
+        foreach(array_keys($sideArr) as $item){
+            $sideItem = $item;
+            $sideQuantity = $sideArr[$item];
+            $sql = "SELECT Unit_cost FROM sides NATURAL JOIN inventory WHERE Item_name = '$sideItem'";
+            $result = mysqli_query($con, $sql);
+            $price = 0;
+            while($row = mysqli_fetch_array($result)){
+                $price = $row['Unit_cost'];
+            }
+            $sql = "INSERT INTO `orderitem` (`Order_Item_Num`, `Item_name`, `Price`, `Quantity`, `Order_Num`) VALUES (NULL, '$sideItem', '$price', '$sideQuantity', '$orderID')";
+            $result = mysqli_query($con, $sql);
         }
-        $sql = "INSERT INTO `orderitem` (`Order_Item_Num`, `Item_name`, `Price`, `Quantity`, `Order_Num`) VALUES (NULL, '$drinkItem', '$price', '$drinkQuantity', '$orderID')";
-        $result = mysqli_query($con, $sql);
-    }
-    //At this point, both order and orderitem are created and populated
+        foreach(array_keys($drinkArr) as $item){
+            $drinkItem = $item;
+            $drinkQuantity = $drinkArr[$item];
+            $sql = "SELECT Unit_cost FROM drinks NATURAL JOIN inventory WHERE Item_name = '$drinkItem'";
+            $result = mysqli_query($con, $sql);
+            $price = 0;
+            while($row = mysqli_fetch_array($result)){
+                $price = $row['Unit_cost'];
+            }
+            $sql = "INSERT INTO `orderitem` (`Order_Item_Num`, `Item_name`, `Price`, `Quantity`, `Order_Num`) VALUES (NULL, '$drinkItem', '$price', '$drinkQuantity', '$orderID')";
+            $result = mysqli_query($con, $sql);
+        }
+        //At this point, both order and orderitem are created and populated
 
-    //Decrement the database to match
-    $sql = "SELECT Item_name, Quantity FROM `orderitem` WHERE Order_Num = '$orderID'";
-    $result = mysqli_query($con, $sql);
-    while($row = mysqli_fetch_array($result)){
-        $item_name = $row['Item_name'];
-        $item_quantity = $row['Quantity'];
-        $sql = "SELECT Stock_level FROM inventory WHERE Item_name = '$item_name'";
-        $curr_result = mysqli_query($con, $sql);
-        $curr_stock = 0;
-        while($curr_row = mysqli_fetch_array($curr_result)){
-            $curr_stock = $curr_row['Stock_level'];
+        //Decrement the database to match
+        $sql = "SELECT Item_name, Quantity FROM `orderitem` WHERE Order_Num = '$orderID'";
+        $result = mysqli_query($con, $sql);
+        while($row = mysqli_fetch_array($result)){
+            $item_name = $row['Item_name'];
+            $item_quantity = $row['Quantity'];
+            $sql = "SELECT Stock_level FROM inventory WHERE Item_name = '$item_name'";
+            $curr_result = mysqli_query($con, $sql);
+            $curr_stock = 0;
+            while($curr_row = mysqli_fetch_array($curr_result)){
+                $curr_stock = $curr_row['Stock_level'];
+            }
+            $new_stock = $curr_stock - $item_quantity;
+            $sql = "UPDATE inventory SET Stock_level = '$new_stock' WHERE Item_name = '$item_name'";
+            $final_result = mysqli_query($con, $sql);
         }
-        $new_stock = $curr_stock - $item_quantity;
-        $sql = "UPDATE inventory SET Stock_level = '$new_stock' WHERE Item_name = '$item_name'";
+        //At this point, the items have been removed successfully from the inventory
+
+        //Complete the order and send them to a new page
+        $sql = "UPDATE `order` SET `Completed`='1' WHERE `OrderID`='$orderID'";
         $final_result = mysqli_query($con, $sql);
-    }
-    //At this point, the items have been removed successfully from the inventory
+        
+        unset($_SESSION['ing']);
+        unset($_SESSION['side']);
+        unset($_SESSION['drink']);
 
-    //Complete the order and send them to a new page
-    $sql = "UPDATE `order` SET `Completed`='1' WHERE `OrderID`='$orderID'";
-    $final_result = mysqli_query($con, $sql);
-    
-    header('location: receipt.php');
+        header('location: receipt.php');
+    }
 }
 ?>
 

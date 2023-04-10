@@ -35,6 +35,7 @@ if(isset($_POST['submitEmail'])){
 <?php
 if(isset($_POST['submitPassword'])){
     $Password = filter_input(INPUT_POST, 'Password', FILTER_SANITIZE_SPECIAL_CHARS);
+    $Password = hash('ripemd256', $Password);
     $id = $_SESSION['ID'];
     $sql = "UPDATE customer SET Password = '$Password' WHERE UserID = '$id'";
     $queryresult = mysqli_query($con, $sql);
