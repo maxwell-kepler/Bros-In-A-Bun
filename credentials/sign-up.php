@@ -11,6 +11,7 @@ function createCustomer($Email, $Password, $Name, $Phone, $CC_Num, $CC_CVC, $CC_
     if(!empty($result)){
         return 'email';
     }
+    $Password = hash('ripemd256', $Password);
     $sql = "INSERT INTO customer (Email, Password, Name, Phone, CC_Num, CC_CVC, CC_Exp) VALUES ('$Email', '$Password', '$Name', '$Phone', '$CC_Num', '$CC_CVC', '$CC_Exp')";
     if(mysqli_query($con, $sql)){
         return true;

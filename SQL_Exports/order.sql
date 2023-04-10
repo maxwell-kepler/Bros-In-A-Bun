@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 09, 2023 at 11:54 PM
+-- Generation Time: Apr 11, 2023 at 01:52 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -38,13 +38,8 @@ CREATE TABLE `order` (
 --
 
 INSERT INTO `order` (`OrderID`, `Completed`, `CustomerID`) VALUES
-(19, 0, 1),
-(20, 0, 1),
-(21, 0, 1),
-(22, 0, 1),
-(23, 0, 1),
-(24, 0, 1),
-(25, 1, 1);
+(45, 1, 1),
+(46, 1, 2);
 
 --
 -- Indexes for dumped tables
@@ -55,7 +50,7 @@ INSERT INTO `order` (`OrderID`, `Completed`, `CustomerID`) VALUES
 --
 ALTER TABLE `order`
   ADD PRIMARY KEY (`OrderID`),
-  ADD KEY `CustomerID` (`CustomerID`);
+  ADD KEY `order_ibfk_1` (`CustomerID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -65,7 +60,7 @@ ALTER TABLE `order`
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- Constraints for dumped tables
@@ -75,7 +70,7 @@ ALTER TABLE `order`
 -- Constraints for table `order`
 --
 ALTER TABLE `order`
-  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`CustomerID`) REFERENCES `customer` (`UserID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `order_ibfk_1` FOREIGN KEY (`CustomerID`) REFERENCES `customer` (`UserID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

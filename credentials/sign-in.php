@@ -5,6 +5,7 @@ function validUser($email, $password){
     global $con;
     $sql = "SELECT Email, Password, UserID FROM customer";
     $queryresult = mysqli_query($con, $sql);
+    $password = hash('ripemd256', $password);
     while($row = mysqli_fetch_array($queryresult)){
         if($email == $row['Email'] && $password == $row['Password']){
             setSession_C($row['UserID']);
