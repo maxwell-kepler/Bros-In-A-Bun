@@ -188,7 +188,7 @@ if(isset($_POST['submitMissing'])){
                 $actualQuantity = $row['Stock_level'];
             }
             if($actualQuantity != 0){
-                $sideArr[$item] = $actualQuantity;
+                $drinkArr[$item] = $actualQuantity;
             } else {
                 unset($drinkArr[$item]);
             }
