@@ -1,7 +1,6 @@
 # Bros-In-A-Bun
 CPSC471 - Final Project - Group 72
 
-
 This project will be using XAMPP to host the PHP website, and will be using phpMyAdmin to host the MySQL database.
 
 This project was based off of code found here: https://www.youtube.com/watch?v=BUCiSSyIGGU&ab_channel=TraversyMedia
