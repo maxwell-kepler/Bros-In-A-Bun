@@ -27,15 +27,9 @@ if (!isset($_SESSION)) {
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
             <?php 
-            if(isset($_SESSION['Role'])){
-              if($_SESSION['Role']=='M'){
-                ?><a class="nav-link" href="../home/man_home.php">Home</a> <?php
-              } else {
-                ?> <a class="nav-link" href="../home/home.php">Home</a> <?php
-              }
-            }
-            ?>
-            
+            if(isset($_SESSION['Role'])){?> 
+              <a class="nav-link" href="../home/home.php">Home</a> 
+            <?php }?>
           </li>
           <li class="nav-item">
             <?php
@@ -57,10 +51,7 @@ if (!isset($_SESSION)) {
               if($_SESSION['Role'] == 'C') {?>
                 <a class="nav-link" href="../customer/edit-c.php">Edit Account Info</a>
                 <?php 
-              } else if($_SESSION['Role'] == "M"){?>
-                <a class="nav-link" href="../manager/edit-m.php">Edit Account Info</a>
-                <?php 
-              }
+              } 
             } ?>
             
           </li>
