@@ -1,7 +1,7 @@
 <?php
     define('DB_HOST', 'localhost');
     define('DB_USER', 'bro');
-    define('DB_PASS', 's');
+    define('DB_PASS', 'bros-in-a-bun-secure-password');
     define('DB_NAME', 'bros');
 
     //Create connection

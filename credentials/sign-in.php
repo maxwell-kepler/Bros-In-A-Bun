@@ -53,7 +53,7 @@ if(isset($_POST['submit'])){
     if($_SESSION['Role'] == 'C'){
         header('Location: ../home/home.php');
     } else if($_SESSION['Role'] == 'M'){
-        header('Location: ../home/man_home.php');
+        header('Location: ../home/home.php');
     } else {
         echo 'Incorrect login';
     }
