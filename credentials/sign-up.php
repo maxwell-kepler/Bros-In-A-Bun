@@ -1,7 +1,6 @@
 <?php include '../inc/header.php'; ?>
 
 <?php
-
 function createCustomer($Email, $Password, $Name, $Phone, $CC_Num, $CC_CVC, $CC_Exp){
     //Codes: true is success, email is invalid email, false is someother failure
     global $con;
@@ -68,11 +67,11 @@ if(isset($_POST['submit'])){
             <input type="text" name="Name">
         </div>
         <div class="card-body text-center"> 
-            <label for="Phone">Phone: </label>
+            <label for="Phone">Phone: (format: xxx-xxx-xxxx)</label>
             <input type="tel" name="Phone">
         </div>
         <div class="card-body text-center"> 
-            <label for="CC_Num">Credit Card Number: </label>
+            <label for="CC_Num">Credit Card Number: (format: xxxx xxxx xxxx xxxx)</label>
             <input type="text" name="CC_Num">
         </div>
         <div class="card-body text-center"> 

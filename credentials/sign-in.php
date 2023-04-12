@@ -62,7 +62,6 @@ if(isset($_POST['submit'])){
 if(isset($_POST['newUser'])){
     header('Location: sign-up.php');
 }
-
 ?>
 
 <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
@@ -85,13 +84,7 @@ if(isset($_POST['newUser'])){
             <input type="submit" value="  Sign up  " name="newUser">
         </div>
     </div>
-    
 </form>
-
-<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST">
-    
-</form>
-
 
 
 <?php include '../inc/footer.php'; ?>

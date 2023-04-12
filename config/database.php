@@ -5,15 +5,12 @@
     define('DB_NAME', 'bros');
 
     //Create connection
-    //$con = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     $con = mysqli_connect(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
     //Check connection
     if($con->connect_error) {
         die('Connection Failed ' . $con->connect_error);
-    } /*else {
-        echo 'Connected to database';
-    }*/
+    }
 
-    
 //https://stackoverflow.com/questions/18022809/how-to-solve-error-mysql-shutdown-unexpectedly
+?>

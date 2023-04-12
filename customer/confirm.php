@@ -42,7 +42,6 @@ foreach(array_keys($ingArr) as $item){
         $priceArr[0] += $row['Unit_cost']; 
     }
     if($expecetedQuantity > $actualQuantity){
-        //echo "         Warning, we don't have enough " . $sandTopping . " to complete your order";
         $missingIngArr[] = $sandTopping;
     }
     echo '<br>';
@@ -103,14 +102,11 @@ if(!empty($drinkArr)){
 $total = $priceArr[0] + $priceArr[1] + $priceArr[2];
 $_SESSION['total'] = $total;
 echo "<br>Your total price comes to: $$total<br>";
-
-//Check out a better way to store type of bread
 ?>
 
 
 
 <?php  
-
 if(!empty($missingIngArr) || !empty($missingSideArr) || !empty($missingDrinkArr)){
     echo "<br>Warning, we are missing certain items to complete your order. Missing items:<br>";
     if(!empty($missingIngArr)){
