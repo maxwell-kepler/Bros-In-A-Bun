@@ -262,7 +262,7 @@ if(isset($_POST['submitComplete'])){
         $id = $_SESSION['ID'];
         $sql = "INSERT INTO `order` (`OrderID`, `Completed`, `CustomerID`) VALUES (NULL, '0', '$id')";
         if(!mysqli_query($con, $sql)){
-            echo 'INVALID<br>';
+            //echo 'INVALID<br>';
             header("Refresh:0");
         }
         $sql = "SELECT `OrderID` FROM `order` WHERE `CustomerID`='$id' AND `Completed`='0'";
